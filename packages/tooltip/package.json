@@ -10,11 +10,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "node bundle.js",
-    "prepublish": "yarn build",
-    "pretest": "yarn lint",
-    "test": "popper-karma",
     "posttest": "tsc --project tests/types/tsconfig.json",
-    "test:dev": "BROWSERS=Chrome NODE_ENV=development yarn test",
     "lint": "eslint .",
     "coverage": "COVERAGE=true yarn test"
   },

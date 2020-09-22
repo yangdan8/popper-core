@@ -28,6 +28,29 @@ export default function applyStyle(data) {
     setStyles(data.arrowElement, data.arrowStyles);
   }
 
+  // shadowDom下重新计算定位
+  const { popper } = data.instance;
+  if (popper.parentNode instanceof ShadowRoot) {
+    let [left, top] = [
+      parseFloat(popper.style.left), 
+      parseFloat(popper.style.top),
+    ];
+    let isInShadow = false;
+    let rootNode = popper.getRootNode();
+    while (rootNode !== document && rootNode !== popper) {
+      isInShadow = true;
+      const { host } = rootNode;
+      const hostRect = window.getBoundingClientRect(host);
+      top -= hostRect.top - 6;
+      left -= hostRect.left - 6;
+      rootNode = host.getRootNode();
+    }
+    isInShadow && setStyles(popper, {
+      left,
+      top,
+    });
+  }
+
   return data;
 }
 
