@@ -40,7 +40,7 @@ export default function applyStyle(data) {
     while (rootNode !== document && rootNode !== popper) {
       isInShadow = true;
       const { host } = rootNode;
-      const hostRect = window.getBoundingClientRect(host);
+      const hostRect = host.getBoundingClientRect();
       top -= hostRect.top - 6;
       left -= hostRect.left - 6;
       rootNode = host.getRootNode();
