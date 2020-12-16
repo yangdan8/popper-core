@@ -41,8 +41,8 @@ export default function applyStyle(data) {
       isInShadow = true;
       const { host } = rootNode;
       const hostRect = host.getBoundingClientRect();
-      top -= hostRect.top - 6;
-      left -= hostRect.left - 6;
+      top -= hostRect.top;
+      left -= hostRect.left;
       rootNode = host.getRootNode();
     }
     isInShadow && setStyles(popper, {
