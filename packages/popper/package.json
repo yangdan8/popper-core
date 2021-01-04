@@ -30,7 +30,7 @@
   "types": "index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "postpublish": "nuget-publish && ./bower-publish.sh",
+    "postpublish-err": "nuget-publish && ./bower-publish.sh",
     "build": "node bundle.js && copy /y index.js.flow dist\\umd\\popper.js.flow",
     "lint": "eslint .",
     "coverage": "COVERAGE=true yarn test"
