@@ -2,6 +2,7 @@
   "name": "popperjs-monorepo",
   "version": "0.0.0",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "bundlesize": "^0.15.3",
     "jsdoc-to-markdown": "^3.0.0",
